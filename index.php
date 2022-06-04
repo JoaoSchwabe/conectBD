@@ -13,8 +13,8 @@ function phpconnect(){
         return false;
     } else {
         echo "Conexão realizada com sucesso<br>";
-        print_r($res);
-        return $res;
+        
+        return (print_r($res));
     }
 }   
 phpconnect();
