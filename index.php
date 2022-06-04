@@ -1,21 +1,15 @@
 <?php
-function phpconnect(){
-
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $con = mysqli_connect($host, $user, $pass);
-    $res = $con->query("SHOW TABLES FROM exercicio1");
+    $bd = "conexao";
 
+    $con = new mysqli($host, $user, $pass);
 
-    if (!$con) {
-        die("Falha na conexão: " . mysqli_connect_errno());
-        return false;
-    } else {
-        echo "Conexão realizada com sucesso<br>";
-        
-        return (print_r($res));
+    $res = mysqli_query($host, $user, $pass, $bd);
+
+    $res = mysqli_query($con,"SHOW DATABASES");
+    while($row = mysqli_fetch_array($result)){
+        echo $row[0]."<br>";
     }
-}   
-phpconnect();
-
+?>
